@@ -6,7 +6,7 @@ Installation of the Bundle.
 ---
 Simple add this line in your require in your composer.json :
 ```
-"l3/ldap-user-bundle": "~1.0"
+"l3/ldap-user-udl-bundle": "~1.0"
 ```
 Launch the command **composer update** to install the package and add the Bundle in AppKernel.php
 ```
