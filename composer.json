@@ -6,6 +6,7 @@
     "type": "symfony-bundle",
     "description": "User provider from LDAP UDL",
     "homepage": "https://github.com/mhetru/LdapUserUdlBundle",
+    "license": "(c) Copyright Universite Lille3 - Charles de Gaulle",
     "authors": [
 	{
 	    "name" : "Pierre Pélisset",
