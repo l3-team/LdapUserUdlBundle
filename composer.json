@@ -4,8 +4,8 @@
 	"l3/ldap-user-bundle":"1.*"
     },
     "type": "symfony-bundle",
-    "description": "User provider from LDAP UDL",
-    "homepage": "https://github.com/mhetru/LdapUserUdlBundle",
+    "description": "User Provider from LDAP UDL/ULille (branch ou=accounts)",
+    "homepage": "https://github.com/l3-team/LdapUserUdlBundle",
     "authors": [
 	{
 	    "name" : "Pierre Pélisset",
@@ -13,7 +13,7 @@
 	},
         {
             "name": "Mathieu Hétru",
-            "email": "mathieu.hetru@univ-lille3.fr"
+            "email": "mathieu.hetru@univ-lille.fr"
         }
     ],
     "require": {
