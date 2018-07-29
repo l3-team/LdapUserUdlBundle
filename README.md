@@ -188,9 +188,9 @@ just create the file app/Resources/TwigBundle/views/Exception/error.html.twig an
 ORM LDAP functions
 ---
 You can make custom ORM LDAP Entity through Doctrine ORM.
-Just create your Entity like this Entity People in your application Bundle :
+Just create your Entity like this Entity Account in your application Bundle :
 ```
-# src/YourApplicationBundle/Entity/People.php
+# src/YourApplicationBundle/Entity/Account.php
 <?php
 
 namespace YourApplicationBundle\Entity;
@@ -199,10 +199,10 @@ use OpenLdapObject\Entity;
 use OpenLdapObject\Annotations as OLO;
 
 /**
- * @OLO\Dn(value="ou=people")
+ * @OLO\Dn(value="ou=accounts")
  * @OLO\Entity({"inetOrgPerson"})
  */
-class People extends Entity {
+class Account extends Entity {
     /**
      * @OLO\Column(type="string")
      * @OLO\Index
@@ -335,7 +335,7 @@ and in your Controller, you can read the LDAP with call your Entity like this :
 <?php
 namespace YourApplicationBundle\Controller;
 ...
-use YourApplication\Entity\People;
+use YourApplication\Entity\Account;
 ...
 class DefaultController extends Controller {
 
@@ -346,7 +346,7 @@ class DefaultController extends Controller {
     {
      	...
         // type of the people (student ? employee ? ..etc)
-	$profil = $this->get('ldap_object.manager')->getRepository('YourApplicationBundle\Entity\People')->find($this->getUser()->getUid());     
+	$profil = $this->get('ldap_object.manager')->getRepository('YourApplicationBundle\Entity\Account')->find($this->getUser()->getUid());     
         
         if ($profil != null){
             $profil = $profil->getEduPersonPrimaryAffiliation();
@@ -362,7 +362,7 @@ for write the LDAP, call your Entity like this :
 <?php
 namespace YourApplicationBundle\Controller;
 ...
-use YourApplication\Entity\People;
+use YourApplication\Entity\Account;
 ...
 class DefaultController extends Controller {
 
@@ -372,12 +372,12 @@ class DefaultController extends Controller {
     public function indexAction(Request $request)
     {
         ...
-        $p = new People();
-        $p->setUid('P7279');
-        $p->setGivenName('Mathieu');
-        $p->addSn('Hetru');
+        $a = new Account();
+        $a->setUid('1940');
+        $a->setGivenName('Mathieu');
+        $a->addSn('Hetru');
         $em = $this->get('ldap_object.manager');
-        $em->persist($p);
+        $em->persist($a);
         $em->flush();
         ...
     }
