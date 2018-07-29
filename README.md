@@ -1,8 +1,5 @@
 Symfony 2/3/4 User provider from LDAP
 
-(author : Universite Lille)
-
-
 Allow use LDAP like user provider and security in application written in Symfony2/3/4
 
 Installation of the Bundle.
