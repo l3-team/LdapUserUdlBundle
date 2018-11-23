@@ -96,7 +96,7 @@ security:
 ```
 
 For Symfony 4 :
-in the configuration file .env.dist and .env, add this :
+in the configuration file .env.local and .env, add this :
 ```
 # .env.dist 
 # .env
