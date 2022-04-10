@@ -26,17 +26,17 @@ class LdapUserProvider implements UserProviderInterface {
         $this->rolesConfig = $rolesConfig;
     }
 
-    public function loadUserByUsername($username) {
-        $user = $this->em->getRepository('L3\Bundle\LdapUserBundle\Entity\LdapUser')->find($username);
+    public function loadUserByIdentifier($identifier): UserInterface {
+        $user = $this->em->getRepository('L3\Bundle\LdapUserBundle\Entity\LdapUser')->find($identifier);
 
-		if(!$user && $username === '__NO_USER__') {
+		if(!$user && $identifier === '__NO_USER__') {
 			$user = new LdapUser();
 			$user->setUid('__NO_USER__');
 			$user->addCn('Anonyme');
 			$user->addSn('Anonyme');
 			$user->addMemberOf('cn=anon,dc=univ-lille3,dc=fr');
 		} elseif(!$user) {
-            throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $username));
+            throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $identifier));
         }
 
         $user->updateRoles(array_merge($this->rolesConfig, array('anon' => 'ROLE_ANON')));
@@ -49,7 +49,7 @@ class LdapUserProvider implements UserProviderInterface {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
         }
 
-        return $this->loadUserByUsername($user->getUid());
+        return $this->loadUserByIdentifier($user->getUid());
     }
 
     public function supportsClass($class) {
