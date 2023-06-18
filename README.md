@@ -391,3 +391,9 @@ class DefaultController extends Controller {
     }
 }
 ```
+Annotations
+---
+The Route annotations run if you install this package :
+```
+composer require doctrine/annotations
+```
