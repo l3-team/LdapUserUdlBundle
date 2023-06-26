@@ -59,7 +59,7 @@ class LdapUser extends Entity implements UserInterface {
     protected $eduPersonAffiliation; 
 
     /**
-     * @OLO\Column(type="string")
+     * @OLO\Column(type="array")
      */
     protected $supannEmpCorps;
 
