@@ -1,4 +1,4 @@
-Symfony 2/3/4/5/6 User provider from LDAP
+Symfony 2/3/4/5/6/7 User provider from LDAP
 
 Allow use LDAP like user provider and security in application written in Symfony2/3/4/5
 
