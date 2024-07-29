@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @OLO\Dn(value="ou=accounts")
  * @OLO\Entity({"inetOrgPerson"})
  */
-abstract class LdapUser extends Entity implements UserInterface {
+class LdapUser extends Entity implements UserInterface {
     /**
      * @OLO\Column(type="string")
      * @OLO\Index
@@ -137,6 +137,10 @@ abstract class LdapUser extends Entity implements UserInterface {
      */
     public function getIdentifier(): string {
         return $this->getFirstCn();
+    }
+
+    public function getUserIdentifier(): string {
+        return $this->getFirstCn();        
     }
 
     /**
