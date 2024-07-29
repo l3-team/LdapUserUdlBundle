@@ -455,3 +455,22 @@ The Route annotations run if you install this package :
 ```
 composer require doctrine/annotations
 ```
+
+Troubleshooting
+---
+If you got this error Class "Doctrine\ORM\Mapping\Driver\AnnotationDriver" not found, downgrade the doctrine/orm package in your composer.json like this :
+```
+...
+"doctrine/orm": "^2.11",
+...
+"conflict": {
+        "symfony/symfony": "*",
+        "doctrine/orm": "2.12.0"
+    },
+
+...
+```
+and then :
+```
+composer update
+```
