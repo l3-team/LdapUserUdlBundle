@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @OLO\Dn(value="ou=accounts")
  * @OLO\Entity({"inetOrgPerson"})
  */
-class LdapUser extends Entity implements UserInterface {
+abstract class LdapUser extends Entity implements UserInterface {
     /**
      * @OLO\Column(type="string")
      * @OLO\Index
